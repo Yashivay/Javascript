@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Using Javascript</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    
 </head>
 <body>
     
     <main>
-        <section> 
-            <h1> Hi, this  </h1>
- 
+        <section>  
+            <div class='card'>
+                <input type="button" value="show" id="clockButton" onclick="showHide()"/>
+                <h1 id="clock" style="display:none"> Clock  </h1>  
+
+                <div class="box"> 
+                    <input type="text"/>
+                    <div class="showHidePasswordBox">
+                        <img src="assets/image/hideEye.png" id="hideEye" style="display: block;" class="passwordEye"/>
+                        <img src="assets/image/showEye.png" id="showEye" style="display: none;" class="passwordEye"/>
+                    </div>                    
+                </div>
+                
+                <div id="demo"> If you want a See Image click on Show Button. </div>             
+            </card>
         </section>
     </main>
 
+    <script>
+        function showHide() {
+           var toggleText = document.getElementById('clockButton');
+            if (toggleText.value == "show"){
+                toggleText.value = "hide";
+                document.getElementById('demo').innerHTML = "If you want a hide Image click on Hide Button.";
+            }
+
+            else if(toggleText.value == "hide"){
+                toggleText.value = "show";
+                document.getElementById('demo').innerHTML = "If you want a See Image click on Show Button.";
+            }
+        }
+    </script>
+
+    </body>
 </body>
 </html>

@@ -1,0 +1,17 @@
+.card {
+    text-align: center;
+    margin: 10% auto;
+    width: 20%;
+}
+
+
+.passwordEye{
+    width:25px;
+    height:25px;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
