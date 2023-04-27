@@ -49,8 +49,17 @@
                 </div>
 
                 <div class="box"> 
+                    <div class="colorBoxes">
+                        <ul class="dflex">
+                            <li class="redbox"   id="redbox"   style="background: #ff0000" onclick="selectColor(1,'#ff0000')">  </li>
+                            <li class="bluebox"  id="bluebox"  style="background: #0000ff" onclick="selectColor(2,'#0000ff')">  </li>
+                            <li class="greenbox" id="greenbox" style="background: #008000" onclick="selectColor(3,'#008000')">  </li>
+                            <li class="blackbox" id="blackbox" style="background: #000000" onclick="selectColor(4,'#000000')">  </li>
+                        </ul>
+                        <div class="selectedColor" id="selectedColor">
 
-
+                        </div>
+                    </div>
                 </div>               
                 
                 <div class="box"> 
@@ -63,7 +72,22 @@
     </main>
 
 
+
+
 <script>
+
+    function selectColor(value,color){
+        if(value==1){
+            var test= document.getElementById('selectedColor').style.background = color;            
+        }else if(value==2){
+            var test= document.getElementById('selectedColor').style.background = color;
+        }else if(value==3){
+            var test= document.getElementById('selectedColor').style.background = color;
+        }else if(value==4){
+            var test= document.getElementById('selectedColor').style.background = color;
+        }
+    }
+
     function checkUserName(){
         var userNameValue= document.getElementById('userName').value;
         var confirmUserNameValue= document.getElementById('confirmUserName').value;
@@ -93,10 +117,8 @@
             document.getElementById('passwordInput').type = "text";
         }
     }
-</script>
 
 
-<script>
     function showHide() {
         var toggleText = document.getElementById('clockButton');
         if (toggleText.value == "show"){
@@ -109,6 +131,7 @@
             document.getElementById('demo').innerHTML = "If you want a See Image click on Show Button.";
         }
     }
+
 </script>
 
     </body>

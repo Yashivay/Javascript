@@ -50,3 +50,21 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.colorBoxes ul {
+    list-style: none;
+    gap: 40px;
+}
+
+.colorBoxes ul li {
+    list-style: none;
+    width: 60px;
+    cursor: pointer;
+    height: 60px;
+}
+
+.selectedColor {
+    height: 250px;
+    width: 450px;
+    border: 1px solid black;
+}
