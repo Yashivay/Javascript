@@ -14,24 +14,69 @@
     <main>
         <section>  
             <div class='card'>
-                <input type="button" value="show" id="clockButton" onclick="showHide()"/>
-                <h1 id="clock" style="display:none"> Clock  </h1>  
 
                 <div class="box"> 
-                    <input type="text" id="passwordInput"/>
-                    <div class="showHidePasswordBox">
-                        <img src="assets/image/hideEye.png" id="hideEye" style="display: none;" class="passwordEye" onclick="TogglePassword()"/>
-                        <img src="assets/image/showEye.png" id="showEye" style="display: block;" class="passwordEye" onclick="TogglePassword()"/>
-                    </div>                    
+                    <div class="dflex HValign">  
+                        <label> Password </label>
+                        <input type="text" id="passwordInput"/>
+                        <div class="showHidePasswordBox">
+                            <img src="assets/image/hideEye.png" id="hideEye" style="display: none;" class="passwordEye" onclick="TogglePassword()"/>
+                            <img src="assets/image/showEye.png" id="showEye" style="display: block;" class="passwordEye" onclick="TogglePassword()"/>
+                        </div>    
+                    </div>                
+                </div> 
+
+                <div class="box"> 
+                    <div class="confirmUserNameBox" id="confirmUserNameBox">
+                        <form action="">
+                            <div class="labelInputBox">
+                                <label> Username </label>
+                                <input type="text" placeholder="Enter Your User Name" id="userName" /> 
+                            </div>                    
+                            <div class="labelInputBox">
+                                <label> Confirm Username </label>
+                                <input type="text" placeholder="Confirm User Name" id="confirmUserName"/>
+                            </div>
+                            <input type="button" value="submit" onclick="checkUserName()"/>
+                        </form>
+                    </div>
+                </div>  
+
+                <div class="box"> 
+                    <input type="button" value="show" id="clockButton" onclick="showHide()"/>
+                    <div id="demo"> If you want a See Image click on Show Button. </div>       
+                    <h1 id="clock" style="display:none"> Clock  </h1>  
                 </div>
+
+                <div class="box"> 
+
+
+                </div>               
                 
-                <div id="demo"> If you want a See Image click on Show Button. </div>             
-            </card>
+                <div class="box"> 
+
+
+                </div>
+
+            </div>
         </section>
     </main>
 
 
 <script>
+    function checkUserName(){
+        var userNameValue= document.getElementById('userName').value;
+        var confirmUserNameValue= document.getElementById('confirmUserName').value;
+
+        if ( userNameValue == confirmUserNameValue){
+            document.getElementById('confirmUserNameBox').classList.add('border_success');
+        }
+
+        else if(userNameValue !== confirmUserNameValue){
+            document.getElementById('confirmUserNameBox').classList.add('border_error');
+        }
+    }
+
      function TogglePassword() {
         var passwordShowEye = document.getElementById('showEye');
         var   passwordInput = document.getElementById('passwordInput');
@@ -47,25 +92,24 @@
             document.getElementById('hideEye').style.display = "none";
             document.getElementById('passwordInput').type = "text";
         }
-
     }
 </script>
 
 
-    <!-- <script>
-        function showHide() {
-           var toggleText = document.getElementById('clockButton');
-            if (toggleText.value == "show"){
-                toggleText.value = "hide";
-                document.getElementById('demo').innerHTML = "If you want a hide Image click on Hide Button.";
-            }
-
-            else if(toggleText.value == "hide"){
-                toggleText.value = "show";
-                document.getElementById('demo').innerHTML = "If you want a See Image click on Show Button.";
-            }
+<script>
+    function showHide() {
+        var toggleText = document.getElementById('clockButton');
+        if (toggleText.value == "show"){
+            toggleText.value = "hide";
+            document.getElementById('demo').innerHTML = "If you want a hide Image click on Hide Button.";
         }
-    </script> -->
+
+        else if(toggleText.value == "hide"){
+            toggleText.value = "show";
+            document.getElementById('demo').innerHTML = "If you want a See Image click on Show Button.";
+        }
+    }
+</script>
 
     </body>
 </body>

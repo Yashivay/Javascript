@@ -1,9 +1,8 @@
 .card {
-    text-align: center;
-    margin: 10% auto;
-    width: 20%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
-
 
 .passwordEye{
     width:25px;
@@ -12,7 +11,42 @@
 }
 
 .box {
-    display: flex;
     justify-content: space-between;
     margin: 10px 0px;
+    border: 1px solid;
+    padding: 40px;
+}
+
+.confirmUserNameBox {
+
+}
+
+.confirmUserNameBox input {
+    margin: 10px 0px;
+    padding: 10px 10px;
+}
+
+.border_success{
+    border:10px solid green;
+}
+
+.border_error{
+    border:10px solid red;
+}
+
+.dflex{
+    display:flex;
+}
+
+.HValign{
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 10px;
+}
+
+.labelInputBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
