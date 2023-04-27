@@ -18,10 +18,10 @@
                 <h1 id="clock" style="display:none"> Clock  </h1>  
 
                 <div class="box"> 
-                    <input type="text"/>
+                    <input type="text" id="passwordInput"/>
                     <div class="showHidePasswordBox">
-                        <img src="assets/image/hideEye.png" id="hideEye" style="display: block;" class="passwordEye"/>
-                        <img src="assets/image/showEye.png" id="showEye" style="display: none;" class="passwordEye"/>
+                        <img src="assets/image/hideEye.png" id="hideEye" style="display: none;" class="passwordEye" onclick="TogglePassword()"/>
+                        <img src="assets/image/showEye.png" id="showEye" style="display: block;" class="passwordEye" onclick="TogglePassword()"/>
                     </div>                    
                 </div>
                 
@@ -30,7 +30,29 @@
         </section>
     </main>
 
-    <script>
+
+<script>
+     function TogglePassword() {
+        var passwordShowEye = document.getElementById('showEye');
+        var   passwordInput = document.getElementById('passwordInput');
+
+        if (document.getElementById('showEye').style.display == "block" || document.getElementById('hideEye').style.display == "none"){
+            document.getElementById('showEye').style.display = "none";
+            document.getElementById('hideEye').style.display = "block";
+            document.getElementById('passwordInput').type = "password";
+        }
+
+        else if (document.getElementById('showEye').style.display == "none" || document.getElementById('hideEye').style.display == "block"){
+            document.getElementById('showEye').style.display = "block";
+            document.getElementById('hideEye').style.display = "none";
+            document.getElementById('passwordInput').type = "text";
+        }
+
+    }
+</script>
+
+
+    <!-- <script>
         function showHide() {
            var toggleText = document.getElementById('clockButton');
             if (toggleText.value == "show"){
@@ -43,7 +65,7 @@
                 document.getElementById('demo').innerHTML = "If you want a See Image click on Show Button.";
             }
         }
-    </script>
+    </script> -->
 
     </body>
 </body>
