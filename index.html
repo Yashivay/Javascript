@@ -63,8 +63,35 @@
                 </div>               
                 
                 <div class="box"> 
+                    <div class="singleTabBox">
+                        <input type="button" class="menuButton" id="menuButton" value="Menu 1" onclick="tabBook(123)">
+                        <input type="button" class="menuButton" id="menuButton" value="Menu 2" onclick="tabBook(456)">
+                        
+                        <div class="tabBox" id="tabBox1" style="display: none;"> 
+                            <div class="singleTabHeading">
+                                <h2> First </h2>
+                            </div>
+                            <div class="singleTabPara">
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Odit obcaecati voluptate asperiores repudiandae quis illum deserunt saepe eaque laborum,
+                                    aliquam laboriosam nam perferendis voluptas quos, ad aliquid minus magnam sapiente.
+                                </p>
+                            </div>
+                        </div>
 
+                        <div class="tabBox" id="tabBox2" style="display: none;"> 
+                            <div class="singleTabHeading">
+                                <h2> Second </h2>
+                            </div>
+                            <div class="singleTabPara">
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Odit obcaecati voluptate asperiores repudiandae quis illum deserunt saepe eaque laborum,
+                                    aliquam laboriosam nam perferendis voluptas quos, ad aliquid minus magnam sapiente.
+                                </p>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
 
             </div>
@@ -75,6 +102,19 @@
 
 
 <script>
+
+    function tabBook(e){
+        var menuButton = document.getElementById('menuButton');
+        var tabBox = document.getElementById('tabBox');
+
+        if(e == 123){
+            document.getElementById('tabBox1').style.display = "block"; 
+        }
+        else if(e == 456){
+            document.getElementById('tabBox2').style.display = "block";
+        }
+    }
+
 
     function selectColor(value,color){
         if(value==1){
