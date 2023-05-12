@@ -113,18 +113,51 @@
                           <p>This is the content of tab 3.</p>
                         </div>
                     </div>
-                      
-
                 </div>
+
+                <div class="box"> 
+                    <div class="moveBox">
+                        <div class="object" id="moveObjM">  </div>
+                        <div class="objectMoveButtons">
+                            <input type="button"   value="right"   onclick="moveObj('right')"  class="MoveButtons"/>   
+                            <input type="button"   value="left"    onclick="moveObj('left')"   class="MoveButtons"/>   
+                            <input type="button"   value="top"     onclick="moveObj('top')"    class="MoveButtons"/>
+                            <input type="button"   value="bottom"  onclick="moveObj('bottom')" class="MoveButtons"/>   
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box"> 
+                    question answers
+
+                </div>    
 
             </div>
         </section>
     </main>
 <script>
 
+function moveObj(align){
+    var i;
+    var btnValue = document.getElementsByClassName('MoveButtons');
+    for (i = 0; i < btnValue.length; i++){
+        var g = btnValue[i].value;
+        if (g !== align){
+            document.getElementById('moveObjM').style[g] = 'initial';
+            
+            
+        } else if (g == align) {
+            document.getElementById('moveObjM').style[g] = '0';
+            document.getElementById('moveObjM').style.transition = '4s';
+            document.getElementById('moveObjM').setAttribute = 'disable';
+        }
+    }       
+ }
+
 
 function openTab(evt, tabName) {
-  var i, tabcontent, tablinks;
+  var i, tabcontent;
 
   // Hide all tab content
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -132,15 +165,9 @@ function openTab(evt, tabName) {
     tabcontent[i].style.display = "none";
   }
 
-  // Deactivate all tab links
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
   // Show the clicked tab content and activate the clicked tab link
   document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
+//   evt.currentTarget.className += " active";
 }
 
     function tabBooks(val) {
