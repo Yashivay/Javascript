@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Javascript</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    
+</head>
+<body>
+    
+    <main>
+        <section>  
+            <div class='card'>
+
+                <div class="box"> 
+                               
+                </div> 
+
+                <div class="box"> 
+                    <div class="dflex HValign">  
+                        <div> 
+                            <label> Password </label>
+                        </div>
+                        
+                            
+                        <div class="showHidePasswordBox">
+                            <input type="text" id="passwordInput"/>
+                            <img src="assets/image/hideEye.png" id="hideEye" style="display: none;" class="passwordEye" onclick="TogglePassword()"/>
+                            <img src="assets/image/showEye.png" id="showEye" style="display: block;" class="passwordEye" onclick="TogglePassword()"/>
+                        </div>    
+                    </div>     
+
+                    <div class="confirmUserNameBox" id="confirmUserNameBox">
+                        <form action="">
+                            <div class="labelInputBox">
+                                <label> Username </label>
+                                <input type="text" placeholder="Enter Your User Name" id="userName" /> 
+                            </div>                    
+                            <div class="labelInputBox">
+                                <label> Confirm Username </label>
+                                <input type="text" placeholder="Confirm User Name" id="confirmUserName"/>
+                            </div>
+                            <input type="button" value="submit" onclick="checkUserName()"/>
+                        </form>
+                    </div>
+                </div>  
+
+                <div class="box"> 
+                    <input type="button" value="show" id="clockButton" onclick="showHide()"/>
+                    <div id="demo"> If you want a See Image click on Show Button. </div>       
+                    <h1 id="clock" style="display:none"> Clock  </h1>  
+                </div>
+
+                <div class="box"> 
+                    <div class="colorBoxes">
+                        <ul class="dflex">
+                            <li class="redbox"   id="redbox"   style="background: #ff0000" onclick="selectColor(1,'#ff0000')">  </li>
+                            <li class="bluebox"  id="bluebox"  style="background: #0000ff" onclick="selectColor(2,'#0000ff')">  </li>
+                            <li class="greenbox" id="greenbox" style="background: #008000" onclick="selectColor(3,'#008000')">  </li>
+                            <li class="blackbox" id="blackbox" style="background: #000000" onclick="selectColor(4,'#000000')">  </li>
+                        </ul>
+                        <div class="selectedColor" id="selectedColor">
+
+                        </div>
+                    </div>
+                </div>               
+                
+                <div class="box"> 
+                    <!-- <div class="singleTabBox">
+                        <input type="button" class="menuButton" value="Menu 1" onclick="tabBooks('tabBox1')">
+                        <input type="button" class="menuButton" value="Menu 2" onclick="tabBooks('tabBox2')">
+                        
+                        <div class="tabBox" id="tabBox1" style="display: none;"> 
+                            <div class="singleTabHeading">
+                                <h2> First </h2>
+                            </div>
+                            <div class="singleTabPara">
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Odit obcaecati voluptate asperiores repudiandae quis illum deserunt saepe eaque laborum,
+                                    aliquam laboriosam nam perferendis voluptas quos, ad aliquid minus magnam sapiente.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tabBox" id="tabBox2" style="display: none;"> 
+                            <div class="singleTabHeading">
+                                <h2> Second </h2>
+                            </div>
+                            <div class="singleTabPara">
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Odit obcaecati voluptate asperiores repudiandae quis illum deserunt saepe eaque laborum,
+                                    aliquam laboriosam nam perferendis voluptas quos, ad aliquid minus magnam sapiente.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div> -->
+
+                    <div class="tab">
+                        <button class="tablinks" onclick="openTab(event, 'tab1')">Tab 1</button>
+                        <button class="tablinks" onclick="openTab(event, 'tab2')">Tab 2</button>
+                        <button class="tablinks" onclick="openTab(event, 'tab3')">Tab 3</button>
+                      
+                        <div id="tab1" class="tabcontent">
+                          <h3>Tab 1 Content</h3>
+                          <p>This is the content of tab 1.</p>
+                        </div>
+                      
+                        <div id="tab2" class="tabcontent">
+                          <h3>Tab 2 Content</h3>
+                          <p>This is the content of tab 2.</p>
+                        </div>
+                      
+                        <div id="tab3" class="tabcontent">
+                          <h3>Tab 3 Content</h3>
+                          <p>This is the content of tab 3.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box"> 
+                    <div class="moveBox">
+                        <div class="object" id="moveObjM">  </div>
+                        <div class="objectMoveButtons">
+                            <input type="button"   value="right"   onclick="moveObj('right')"  class="MoveButtons"/>   
+                            <input type="button"   value="left"    onclick="moveObj('left')"   class="MoveButtons"/>   
+                            <input type="button"   value="top"     onclick="moveObj('top')"    class="MoveButtons"/>
+                            <input type="button"   value="bottom"  onclick="moveObj('bottom')" class="MoveButtons"/>   
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">  question answers </div>    
+            </div>
+        </section>
+    </main>
+<script>
+
+function openTab(evt, tabName) {
+  var i, tabcontent;
+
+  // Hide all tab content
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Show the clicked tab content and activate the clicked tab link
+  document.getElementById(tabName).style.display = "block";
+//   evt.currentTarget.className += " active";
+}
+
+function selectColor(value,color){
+        if(value==1){
+            var test= document.getElementById('selectedColor').style.background = color;            
+        }else if(value==2){
+            var test= document.getElementById('selectedColor').style.background = color;
+        }else if(value==3){
+            var test= document.getElementById('selectedColor').style.background = color;
+        }else if(value==4){
+            var test= document.getElementById('selectedColor').style.background = color;
+        }
+    }
+
+function TogglePassword() {
+        var passwordShowEye = document.getElementById('showEye');
+        var   passwordInput = document.getElementById('passwordInput');
+
+        if (document.getElementById('showEye').style.display == "block" || document.getElementById('hideEye').style.display == "none"){
+            document.getElementById('showEye').style.display = "none";
+            document.getElementById('hideEye').style.display = "block";
+            document.getElementById('passwordInput').type = "password";
+        }
+
+        else if (document.getElementById('showEye').style.display == "none" || document.getElementById('hideEye').style.display == "block"){
+            document.getElementById('showEye').style.display = "block";
+            document.getElementById('hideEye').style.display = "none";
+            document.getElementById('passwordInput').type = "text";
+        }
+    }
+
+
+function moveObj(align){
+    var i;
+    var btnValue = document.getElementsByClassName('MoveButtons');
+    for (i = 0; i < btnValue.length; i++){
+        var g = btnValue[i].value;
+        if (g !== align){
+            document.getElementById('moveObjM').style[g] = 'initial';
+            
+            
+        } else if (g == align) {
+            document.getElementById('moveObjM').style[g] = '0';
+            document.getElementById('moveObjM').style.transition = '4s';
+            document.getElementById('moveObjM').setAttribute = 'disable';
+        }
+    }       
+ }
+
+
+
+    function tabBooks(val) {
+        if (val == 'tabBox1') {
+            document.getElementById(val).style.display = 'block'; 
+            document.querySelector('#tabBox2').style.display = 'none'; 
+        }         
+
+        if (val == 'tabBox2') {
+            document.getElementById(val).style.display = 'block';       
+            document.querySelector('#tabBox1').style.display = 'none'; 
+        }
+    }
+    function tabBook(n,
+    
+    
+    
+    ){
+        var menuButton = document.getElementById('menuButton');
+        var tabBox = document.getElementById('tabBox');
+
+        if(n == 1){
+            document.getElementById('tabBox').style.display = nvalue; 
+        }
+        else if(!n == 1){
+            document.getElementById('tabBox').style.display = 'none'; 
+        }
+       
+    }
+
+    function checkUserName(){
+        var userNameValue= document.getElementById('userName').value;
+        var confirmUserNameValue= document.getElementById('confirmUserName').value;
+
+        if ( userNameValue == confirmUserNameValue){
+            document.getElementById('confirmUserNameBox').classList.add('border_success');
+        }
+
+        else if(userNameValue !== confirmUserNameValue){
+            document.getElementById('confirmUserNameBox').classList.add('border_error');
+        }
+    }
+
+
+
+    function showHide() {
+        var toggleText = document.getElementById('clockButton');
+        if (toggleText.value == "show"){
+            toggleText.value = "hide";
+            document.getElementById('demo').innerHTML = "If you want a hide Image click on Hide Button.";
+        }
+
+        else if(toggleText.value == "hide"){
+            toggleText.value = "show";
+            document.getElementById('demo').innerHTML = "If you want a See Image click on Show Button.";
+        }
+    }
+
+</script>
+
+    </body>
+</body>
+</html>
